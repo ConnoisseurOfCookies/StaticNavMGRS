@@ -21,11 +21,12 @@ function gridIsValid(grid){
 }
 
 function gridToVector(grid){
-
+  
 }
 
 function milToRadian(bearing){
-
+ let shiftedBearing = Math.abs(4800-bearing);
+ return (shiftedBearing*Math.PI)/6400;
 }
 
 function getUnitVector(angle){
@@ -60,6 +61,8 @@ const unitTests = {
                 console.log('milToRadian has not been defined');
                 return;
             }
+            
+            console.assert(milToRadian(0 == Math.PI/2), "milToRadian does not convert")
         },
         testGetUnitVector: () => {
             if(typeof getUnitVector === "undefined"){
